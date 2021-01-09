@@ -15,7 +15,7 @@
     "SharedArrayBuffer": "readonly"
   },
   "plugins": ["import", "jsx-a11y", "react", "react-hooks", "prettier"],
-  "extends": ["airbnb", "eslint-config-prettier", "prettier/react"],
+  "extends": ["airbnb", "eslint-config-prettier", "prettier"],
   "rules": {
     "prettier/prettier": "error",
     "camelcase": "off",
@@ -64,7 +64,6 @@
         "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/quotes": [
           2,
-          "backtick",
           {
             "avoidEscape": true
           }

@@ -32,9 +32,15 @@
     ]
   },
   "dependencies": {
+    "@ffmpeg/core": "0.8.5",
+    "@ffmpeg/ffmpeg": "0.9.6",
     "next": "10.0.4",
+    "node-sass": "5.0.0",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-dropzone": "11.2.4",
+    "react-file-drop": "3.1.2",
+    "wavesurfer.js": "4.3.0"
   },
   "devDependencies": {
     "@commitlint/cli": "11.0.0",

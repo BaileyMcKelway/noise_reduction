@@ -2,9 +2,7 @@ import React from 'react';
 
 const Title: React.FC = () => (
   <>
-    <h1 className="title">
-      Welcome to <a href="https://nextjs.org">Next.js!</a>
-    </h1>
+    <h1 className="title">Noise Reduction</h1>
     <style jsx>
       {`
         .title a {

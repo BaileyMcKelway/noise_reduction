@@ -1,4 +1,7 @@
 {
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
   "trailingComma": "all",
   "singleQuote": true,
   "printWidth": 80,
