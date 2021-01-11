@@ -46,6 +46,20 @@
       border: 5px solid red;
       width: 25vw;
       height: 12vh;
+      position: relative;
+      canvas {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      #foreGround {
+        z-index: 1;
+      }
+      #backGround {
+        z-index: 0;
+      }
     }
     .progress {
       display: flex;

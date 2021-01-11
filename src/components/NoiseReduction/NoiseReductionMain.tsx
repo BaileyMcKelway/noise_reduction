@@ -50,14 +50,17 @@ function NoiseReduction(props: IAppProps) {
   };
 
   const handlePlay = () => {
+    console.log('handleplay');
     setAudioState('play');
   };
 
   const handlePause = () => {
+    console.log('handlepause');
     setAudioState('pause');
   };
 
   const handleStop = () => {
+    console.log('handlestop');
     setAudioState('stop');
   };
 
@@ -132,7 +135,10 @@ function NoiseReduction(props: IAppProps) {
             max={20}
             type={'noise_floor'}
           />
-          <div className="reduction_visualizer"></div>
+          <div className="reduction_visualizer">
+            <canvas id="foreGround" className="canvas"></canvas>
+            <canvas id="backGround" className="canvas"></canvas>
+          </div>
           <Slider
             para={nr}
             paraFunc={handleChangeNR}
