@@ -1,10 +1,171 @@
+body {
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  min-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media (max-width: 1110px) {
+}
+// NAVBAR
+header {
+  display: block;
+  color: white;
+  background-color: black;
+  width: 100%;
+}
+
+// FOOTER
+footer {
+  height: 2rem;
+  width: 100vw;
+  margin-top: 150px;
+  border-top: 1px solid black;
+}
+
+// DESCRIPTION
+.description_main {
+  font-size: 1.5em;
+  color: rgb(62, 62, 62);
+  text-align: center;
+  width: 1200px;
+}
+
+// EXAMPLE
+.example_main {
+  background-color: white;
+  border: 2px solid red;
+  border-radius: 5px;
+  color: red;
+}
+
+// INSTRUCTION
+.instruction_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 1200px;
+  text-align: center;
+
+  .instruction_steps_main {
+    height: 50vh;
+  }
+  .step_mod_main {
+    display: flex;
+    height: 10vh;
+    min-height: 125px;
+    .step_mod_number {
+      font-size: 3em;
+    }
+    .step_mod_content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      .step_mod_title {
+        font-weight: bold;
+      }
+      .step_mod_text {
+        font-size: 1.7em;
+      }
+    }
+  }
+}
+
+.bulletpoints__main {
+  margin-top: 25px;
+  width: 65vw;
+  max-width: 1200px;
+
+  font-size: 2.1em;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  text-align: center;
+
+  margin-top: 15vh;
+  .instruction_mod {
+    margin-top: 5vh;
+    width: 25vw;
+    max-width: 525px;
+    border-top: 4px solid rgb(0, 85, 255);
+  }
+}
+
+@media (max-width: 1150px) {
+  .bulletpoints__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-top: 5vh;
+    .instruction_mod {
+      margin-top: 5vh;
+      width: 100vw;
+      border-top: 4px solid rgb(0, 85, 255);
+    }
+  }
+}
+
+// MAIN APP
+.main_file {
+  margin-top: 15vh;
+}
 .fileview_main {
-  background-color: aquamarine;
+  position: relative;
+  background: linear-gradient(
+      -90deg,
+      rgba(10, 161, 255, 0.148) 1px,
+      transparent 1px
+    ),
+    linear-gradient(rgba(186, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(-90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(
+      transparent 3px,
+      transparent 3px,
+      transparent 78px,
+      transparent 78px
+    ),
+    linear-gradient(-90deg, transparent 1px, transparent 1px),
+    linear-gradient(
+      -90deg,
+      transparent 3px,
+      transparent 3px,
+      transparent 78px,
+      transparent 78px
+    ),
+    linear-gradient(transparent 1px, transparent 1px), transparent;
+  background-size: 10px 10px, 10px 10px, 10px 10px, 10px 10px, 10px 10px,
+    10px 10px, 10px 10px, 10px 10px;
+  background-color: rgba(254, 254, 174, 0.792);
+
   width: 60vw;
   max-width: 1500px;
   min-width: 1000px;
 
-  min-height: 200px;
+  height: 18vh;
+  min-height: 350px;
+
+  border-radius: 15px;
 
   video {
     width: 100%;
@@ -17,11 +178,22 @@
     flex-direction: column-reverse;
     position: relative;
   }
+}
 
-  .load_file_main {
-    border: 4px solid black;
-    color: black;
-    height: 250px;
+.load_file_main {
+  align-items: center;
+  background-color: #0080ff;
+  border: 15px dashed rgb(254, 254, 174);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 15vh;
+  min-height: 300px;
+  width: 35vw;
+  max-width: 1000px;
+  min-width: 400px;
+  .load_file_image {
+    fill: rgb(255, 255, 255);
   }
 }
 .noise_reduction_main {
@@ -31,34 +203,61 @@
   .noise_reduction_top {
     display: flex;
     justify-content: space-between;
+    .noise_reduction_top_left {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 
   .noise_reduction_bottom {
     .reduction_controls {
       display: flex;
       justify-content: space-evenly;
+
+      .reduction_controls_left {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .slider_main {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 35px;
+      }
     }
     .reduction_buttons {
       display: flex;
       justify-content: center;
     }
+
     .reduction_visualizer {
-      border: 5px solid red;
-      width: 25vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      width: 500px;
       height: 12vh;
       position: relative;
-      canvas {
-        height: 100%;
-        width: 100%;
+      background: rgb(251, 251, 251);
+      .canvas {
+        height: 95%;
+        width: 95%;
         position: absolute;
-        left: 0;
-        top: 0;
+        background-color: transparent;
+
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
       }
       #foreGround {
+        z-index: 2;
+      }
+      #midGround {
         z-index: 1;
       }
       #backGround {
         z-index: 0;
+        background: rgb(251, 251, 251);
       }
     }
     .progress {
@@ -66,4 +265,155 @@
       justify-content: center;
     }
   }
+}
+
+.outputfile_main {
+  .outfile_player {
+    position: relative;
+    width: 60vw;
+    max-width: 1500px;
+    min-width: 1000px;
+
+    height: 10vh;
+    min-height: 150px;
+    border-radius: 15px;
+    background-color: rgba(231, 231, 231, 0.072);
+  }
+  .outfile_controls {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgb(120, 120, 120);
+    border-radius: 5px;
+  }
+}
+
+.example_instructions {
+  margin-top: 25px;
+  color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 4px solid red;
+}
+
+// ANIMATION
+.loading_file {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(198, 198, 198, 0.483);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+$dot-width: 15px;
+$dot-height: 15px;
+$dot-border-radius: 10px;
+
+.dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: $dot-width;
+  height: $dot-height;
+  border-radius: $dot-border-radius;
+  background-color: #0080ff;
+  color: #0080ff;
+  box-shadow: 9999px 0 0 -5px #0080ff;
+  animation: dotPulse 1.5s infinite linear;
+  animation-delay: 0.25s;
+  z-index: 5;
+}
+
+.dot-pulse::before,
+.dot-pulse::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: $dot-width;
+  height: $dot-height;
+  border-radius: $dot-border-radius;
+  background-color: #0080ff;
+  color: #0080ff;
+}
+
+.dot-pulse::before {
+  box-shadow: 9984px 0 0 -5px #0080ff;
+  animation: dotPulseBefore 1.5s infinite linear;
+  animation-delay: 0s;
+}
+
+.dot-pulse::after {
+  box-shadow: 10014px 0 0 -5px #0080ff;
+  animation: dotPulseAfter 1.5s infinite linear;
+  animation-delay: 0.5s;
+}
+
+@keyframes dotPulseBefore {
+  0% {
+    box-shadow: 9984px 0 0 -5px #0080ff;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px #0080ff;
+  }
+  60%,
+  100% {
+    box-shadow: 9984px 0 0 -5px #0080ff;
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px #0080ff;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px #0080ff;
+  }
+  60%,
+  100% {
+    box-shadow: 9999px 0 0 -5px #0080ff;
+  }
+}
+
+@keyframes dotPulseAfter {
+  0% {
+    box-shadow: 10014px 0 0 -5px #0080ff;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px #0080ff;
+  }
+  60%,
+  100% {
+    box-shadow: 10014px 0 0 -5px #0080ff;
+  }
+}
+
+.green {
+  color: rgb(0, 195, 0);
+  font-weight: bold;
+}
+
+.red {
+  color: red;
+  font-weight: bold;
+}
+
+.blue {
+  color: blue;
+  font-weight: bold;
+}
+
+.outline {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  z-index: 0;
+}
+
+.MuiCircularProgress-colorPrimary {
+  color: white !important;
 }

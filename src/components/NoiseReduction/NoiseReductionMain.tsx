@@ -1,26 +1,42 @@
-import React, { useState, useRef } from 'react';
-import { Slider } from './Slider';
+import React, { useState, useRef, useEffect } from 'react';
+import { SliderUI } from './Slider';
 import { FileView } from './InputFileView/FileView';
 import { AudioControls } from './AudioControls';
 import { ZoomControls } from './ZoomControls';
 import { OutputFileView } from './OutputFileView/OutputFileView';
+import { Canvas } from './Canvas';
+import ExampleInstructions from './ExampleInstructions';
+import Reset from './Reset';
+import { ButtonComp } from './ButtonComp';
 import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 
-export interface IAppProps {
-  Transcode: any;
+export interface INoiseReductionProps {
+  load: string;
+  inputFile: any;
+  handleFile: (file: any) => void;
+  handleLoaded: () => void;
+  handleEmpty: () => void;
+  example: boolean;
 }
 
-function NoiseReduction(props: IAppProps) {
-  const [nf, setNF] = useState(50);
-  const [nr, setNR] = useState(12);
+function NoiseReduction({
+  load,
+  inputFile,
+  handleFile,
+  handleLoaded,
+  handleEmpty,
+  example,
+}: INoiseReductionProps) {
+  const [nf, setNF] = useState(30);
+  const [nr, setNR] = useState(70);
   const [zoom, setZoom] = useState(0);
   const [noiseProfile, setNoiseProfile] = useState([1.0, 3.0]);
-  const [inputFile, setInputFile] = useState();
   const [outputFile, setOutputFile] = useState('');
   const [audioState, setAudioState] = useState('pause');
   const [noiseState, setNoiseState] = useState(false);
-  const [loaded, setLoaded] = useState(false);
+  const [reductionState, setReductionState] = useState(false);
   const [finished, setFinished] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const ffmpeg = createFFmpeg({
     corePath: 'https://unpkg.com/@ffmpeg/core@0.8.5/dist/ffmpeg-core.js',
   });
@@ -28,39 +44,38 @@ function NoiseReduction(props: IAppProps) {
 
   const timerRef = useRef(null);
 
-  const handleChangeNF = (event) => {
-    setNF(event.target.value);
+  useEffect(() => {
+    if (example === true) {
+      setNR(80);
+      setNF(25);
+      setNoiseProfile([14.0288210486741, 14.923252993905896]);
+    }
+  }, []);
+  const handleChangeNF = (event: any, newValue: number | number[]) => {
+    setNF(newValue as number);
   };
 
-  const handleChangeNR = (event) => {
-    setNR(event.target.value);
-  };
-
-  const handleFile = (file) => {
-    setInputFile(file);
-    setLoaded(true);
-  };
-
-  const handleZoomOut = () => {
-    setZoom(zoom - 10);
+  const handleChangeNR = (event: any, newValue: number | number[]) => {
+    setNR(newValue as number);
   };
 
   const handleZoomIn = () => {
-    setZoom(zoom + 10);
+    setZoom(20);
+  };
+
+  const handleZoom = (event: any, newValue: number | number[]) => {
+    setZoom(newValue as number);
   };
 
   const handlePlay = () => {
-    console.log('handleplay');
     setAudioState('play');
   };
 
   const handlePause = () => {
-    console.log('handlepause');
     setAudioState('pause');
   };
 
   const handleStop = () => {
-    console.log('handlestop');
     setAudioState('stop');
   };
 
@@ -79,10 +94,10 @@ function NoiseReduction(props: IAppProps) {
 
   const Transcode = async () => {
     setMessage('Loading ffmpeg-core.js');
+    setReductionState(true);
     await ffmpeg.load();
 
     const name = inputFile !== undefined ? inputFile.name : null;
-
     ffmpeg.FS('writeFile', name, await fetchFile(inputFile));
     setMessage('Start transcoding');
     await ffmpeg.run(
@@ -100,6 +115,7 @@ function NoiseReduction(props: IAppProps) {
       URL.createObjectURL(new Blob([data.buffer], { type: 'audio/wav' })),
     );
     setFinished(true);
+    setReductionState(false);
   };
   return (
     <div className="noise_reduction_main">
@@ -108,58 +124,81 @@ function NoiseReduction(props: IAppProps) {
           handlePlay={handlePlay}
           handlePause={handlePause}
           handleStop={handleStop}
+          reductionState={reductionState}
+          audioState={audioState}
         />
-        <ZoomControls
-          handleZoomIn={handleZoomIn}
-          handleZoomOut={handleZoomOut}
-        />
+        <div className="noise_reduction_top_left">
+          <ZoomControls
+            handleZoom={handleZoom}
+            zoom={zoom}
+            reductionState={reductionState}
+          />
+          <Reset handleEmpty={handleEmpty} />
+        </div>
       </div>
       <div>
         <FileView
+          load={load}
           loaded={loaded}
           inputFile={inputFile}
           zoom={zoom}
+          nf={nf}
           audioState={audioState}
           noiseState={noiseState}
-          handleFile={handleFile}
           handleNoiseProfile={handleNoiseProfile}
           handleZoomIn={handleZoomIn}
+          handleLoaded={handleLoaded}
+          handlePause={handlePause}
+          example={example}
         />
       </div>
       <div className="noise_reduction_bottom">
         <div className="reduction_controls">
-          <Slider
-            para={nf}
-            paraFunc={handleChangeNF}
-            min={80}
-            max={20}
-            type={'noise_floor'}
-          />
-          <div className="reduction_visualizer">
-            <canvas id="foreGround" className="canvas"></canvas>
-            <canvas id="backGround" className="canvas"></canvas>
+          <div className="reduction_controls_left">
+            <SliderUI
+              para={nf}
+              paraFunc={handleChangeNF}
+              min={20}
+              max={80}
+              type={'noise_floor'}
+              reductionState={reductionState}
+              text={'Noise Floor'}
+            />
+            <ButtonComp
+              func={handleLearn}
+              color={'secondary'}
+              classLabel={'learn'}
+              text={['Learn', 'X']}
+              active={noiseState}
+              animation={false}
+              reductionState={reductionState}
+            />
           </div>
-          <Slider
+          <Canvas />
+          <SliderUI
             para={nr}
             paraFunc={handleChangeNR}
             min={0.01}
             max={97}
             type={'noise_reduction'}
+            reductionState={reductionState}
+            text={'Noise Reduction'}
           />
         </div>
-        <br />
         <div className="progress">
           <p>{message}</p>
         </div>
-        <div className="reduction_buttons">
-          <button type="button" onClick={handleLearn}>
-            Learn
-          </button>
-          <button type="submit" onClick={Transcode}>
-            Submit
-          </button>
-        </div>
+        <ButtonComp
+          func={Transcode}
+          color={'primary'}
+          classLabel={'generate'}
+          text={'Generate'}
+          active={reductionState}
+          animation={true}
+          reductionState={reductionState}
+        />
       </div>
+      {example && <ExampleInstructions />}
       {finished === true && (
         <OutputFileView inputFile={inputFile} outputFile={outputFile} />
       )}

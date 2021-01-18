@@ -1,9 +1,9 @@
 {
-  "name": "typescript-nextjs-starter",
-  "description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
+  "name": "media-editor",
+  "description": "Media Editor using WebAssembly and React",
   "version": "1.0.0",
   "private": true,
-  "author": "João Pedro Schmitz <oi@joaopedro.cc> (joaopedro.cc)",
+  "author": "Bailey McKelway",
   "license": "MIT",
   "keywords": [
     "nextjs",
@@ -34,12 +34,15 @@
   "dependencies": {
     "@ffmpeg/core": "0.8.5",
     "@ffmpeg/ffmpeg": "0.9.6",
+    "@material-ui/core": "4.11.2",
+    "@material-ui/icons": "4.11.2",
+    "file-loader": "6.2.0",
     "next": "10.0.4",
     "node-sass": "5.0.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "react": "16.14.0",
+    "react-dom": "16.13.1",
     "react-dropzone": "11.2.4",
-    "react-file-drop": "3.1.2",
+    "url-loader": "4.1.1",
     "wavesurfer.js": "4.3.0"
   },
   "devDependencies": {
