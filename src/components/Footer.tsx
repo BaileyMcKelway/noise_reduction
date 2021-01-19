@@ -5,7 +5,7 @@ export interface IFooterProps {}
 export default function Footer(props: IFooterProps) {
   return (
     <footer>
-      <p>Footer</p>
+      <small>© Media Edits, 2021–2021</small>
     </footer>
   );
 }

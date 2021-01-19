@@ -8,7 +8,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <title>Noise Reduction</title>
           {/* PWA primary color */}
           <meta
             name="description"

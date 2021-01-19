@@ -37,9 +37,7 @@ function NoiseReduction({
   const [reductionState, setReductionState] = useState(false);
   const [finished, setFinished] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const ffmpeg = createFFmpeg({
-    corePath: 'https://unpkg.com/@ffmpeg/core@0.8.5/dist/ffmpeg-core.js',
-  });
+  const ffmpeg = createFFmpeg();
   const [message, setMessage] = useState('Click Start to transcode');
 
   const timerRef = useRef(null);

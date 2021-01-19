@@ -35,7 +35,10 @@ footer {
   height: 2rem;
   width: 100vw;
   margin-top: 150px;
-  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // border-top: 1px solid black;
 }
 
 // DESCRIPTION
@@ -404,6 +407,11 @@ $dot-border-radius: 10px;
 
 .blue {
   color: blue;
+  font-weight: bold;
+}
+
+.orange {
+  color: rgb(255, 179, 0);
   font-weight: bold;
 }
 
