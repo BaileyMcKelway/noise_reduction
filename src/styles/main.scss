@@ -20,14 +20,13 @@ body {
   align-items: center;
 }
 
-@media (max-width: 1110px) {
-}
 // NAVBAR
 header {
   display: block;
   color: white;
   background-color: black;
   width: 100%;
+  letter-spacing: 0.001em;
 }
 
 // FOOTER
@@ -38,7 +37,13 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  // border-top: 1px solid black;
+  ul {
+    display: flex;
+  }
+  li {
+    list-style: none;
+    margin: 5px;
+  }
 }
 
 // DESCRIPTION
@@ -167,6 +172,7 @@ footer {
 
   height: 18vh;
   min-height: 350px;
+  max-height: 450px;
 
   border-radius: 15px;
 
@@ -186,12 +192,13 @@ footer {
 .load_file_main {
   align-items: center;
   background-color: #0080ff;
-  border: 15px dashed rgb(254, 254, 174);
+  border: 10px dashed rgb(254, 254, 174);
   color: white;
   display: flex;
   flex-direction: column;
   height: 15vh;
   min-height: 300px;
+  max-height: 450px;
   width: 35vw;
   max-width: 1000px;
   min-width: 400px;

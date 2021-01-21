@@ -1,11 +1,32 @@
 import * as React from 'react';
+import Link from 'next/link';
 
 export interface IFooterProps {}
 
 export default function Footer(props: IFooterProps) {
   return (
     <footer>
-      <small>© Media Edits, 2021–2021</small>
+      <ul>
+        <li>
+          <Link href="/contact">
+            <a>Contact</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/privacy">
+            <a>Privacy</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/terms">
+            <a>Terms</a>
+          </Link>
+        </li>
+        <li>
+          {' '}
+          <small>© Media Edits, 2021–2021</small>
+        </li>
+      </ul>
     </footer>
   );
 }
