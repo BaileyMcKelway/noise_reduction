@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 import { SliderUI } from './Slider';
 import { FileView } from './InputFileView/FileView';
 import { AudioControls } from './AudioControls';
@@ -8,7 +9,6 @@ import { Canvas } from './Canvas';
 import ExampleInstructions from './ExampleInstructions';
 import Reset from './Reset';
 import { ButtonComp } from './ButtonComp';
-import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 
 export interface INoiseReductionProps {
   load: string;
@@ -91,13 +91,13 @@ function NoiseReduction({
   };
 
   const Transcode = async () => {
-    setMessage('Loading ffmpeg-core.js');
+    setMessage('Loading');
     setReductionState(true);
     await ffmpeg.load();
 
     const name = inputFile !== undefined ? inputFile.name : null;
     ffmpeg.FS('writeFile', name, await fetchFile(inputFile));
-    setMessage('Start transcoding');
+    setMessage('Starting Reduction');
     await ffmpeg.run(
       '-i',
       name,
@@ -107,7 +107,7 @@ function NoiseReduction({
       } afftdn@n sn stop',afftdn@n afftdn=nr=${nr}:nf=${nf * -1}:rf=-75`,
       'out.wav',
     );
-    setMessage('Complete transcoding');
+    setMessage('Complete Reduction');
     const data = ffmpeg.FS('readFile', 'out.wav');
     setOutputFile(
       URL.createObjectURL(new Blob([data.buffer], { type: 'audio/wav' })),
@@ -158,14 +158,14 @@ function NoiseReduction({
               paraFunc={handleChangeNF}
               min={20}
               max={80}
-              type={'noise_floor'}
+              type="noise_floor"
               reductionState={reductionState}
-              text={'Noise Floor'}
+              text="Noise Floor"
             />
             <ButtonComp
               func={handleLearn}
-              color={'secondary'}
-              classLabel={'learn'}
+              color="secondary"
+              classLabel="learn"
               text={['Learn', 'X']}
               active={noiseState}
               animation={false}
@@ -178,9 +178,9 @@ function NoiseReduction({
             paraFunc={handleChangeNR}
             min={0.01}
             max={97}
-            type={'noise_reduction'}
+            type="noise_reduction"
             reductionState={reductionState}
-            text={'Noise Reduction'}
+            text="Noise Reduction"
           />
         </div>
         <div className="progress">
@@ -188,9 +188,9 @@ function NoiseReduction({
         </div>
         <ButtonComp
           func={Transcode}
-          color={'primary'}
-          classLabel={'generate'}
-          text={'Generate'}
+          color="primary"
+          classLabel="generate"
+          text="Generate"
           active={reductionState}
           animation={true}
           reductionState={reductionState}
