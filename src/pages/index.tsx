@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Head from 'next/head';
 import NavBar from '@/components/NavBar';
 import Title from '@/components/Title';
 import Description from '@/components/Description';
@@ -18,6 +19,12 @@ const Home: React.FC = () => {
   };
   return (
     <div>
+      <Head>
+        <title>Media Edits | Noise Reduction in the browser!</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+
       <div className="container">
         <NavBar />
         <Title />
