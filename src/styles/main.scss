@@ -32,7 +32,7 @@ header {
 // FOOTER
 footer {
   height: 2rem;
-  width: 100vw;
+  width: 99vw;
   margin-top: 150px;
   display: flex;
   justify-content: center;
@@ -60,6 +60,12 @@ footer {
   border: 2px solid red;
   border-radius: 5px;
   color: red;
+
+  display: flex;
+  align-items: center;
+  span {
+    align-self: center;
+  }
 }
 
 // INSTRUCTION
@@ -69,6 +75,9 @@ footer {
   justify-content: flex-start;
   align-items: center;
   width: 1200px;
+  height: 100vh;
+  min-height: 1000px;
+  max-height: 1250px;
   text-align: center;
 
   .instruction_steps_main {
@@ -78,6 +87,8 @@ footer {
     display: flex;
     height: 10vh;
     min-height: 125px;
+    margin-top: 25px;
+    margin-bottom: 35px;
     .step_mod_number {
       font-size: 3em;
     }
@@ -98,6 +109,7 @@ footer {
 
 .bulletpoints__main {
   margin-top: 25px;
+
   width: 65vw;
   max-width: 1200px;
 
@@ -119,11 +131,6 @@ footer {
 
 @media (max-width: 1150px) {
   .bulletpoints__main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-
     margin-top: 5vh;
     .instruction_mod {
       margin-top: 5vh;

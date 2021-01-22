@@ -9,13 +9,11 @@ export interface IExampleProps {
 export default function Example({ handleExample }: IExampleProps) {
   return (
     <Paper elevation={1}>
-      <button className="example_main" onClick={handleExample}>
-        <h1>
-          Or Try Example
-          <span>
-            <ArrowForwardIosRoundedIcon />
-          </span>
-        </h1>
+      <button type="button" className="example_main" onClick={handleExample}>
+        <h1>Or Try Example</h1>
+        <span>
+          <ArrowForwardIosRoundedIcon />
+        </span>
       </button>
     </Paper>
   );

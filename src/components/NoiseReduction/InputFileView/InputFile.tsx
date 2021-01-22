@@ -63,7 +63,7 @@ export function InputFile({
       regionStart = 14.0288210486741;
       regionEnd = 14.923252993905896;
     }
-    let waveForm = WaveSurfer.create({
+    const waveFormTemp = WaveSurfer.create({
       cursorWidth: 1,
       container: '#waveform',
       backend: 'WebAudio',
@@ -107,11 +107,11 @@ export function InputFile({
         }),
       ],
     });
-    const url = URL.createObjectURL(inputFile);
+    const urlTemp = URL.createObjectURL(inputFile);
 
-    waveForm.load(url);
-    setUrl(url);
-    setWaveForm(waveForm);
+    waveFormTemp.load(urlTemp);
+    setUrl(urlTemp);
+    setWaveForm(waveFormTemp);
   }, [loaded]);
 
   useEffect(() => {
@@ -143,7 +143,7 @@ export function InputFile({
       }
 
       ctx.beginPath();
-      let bars = 4096;
+      const bars = 4096;
 
       for (let i = 0; i < bars; i += 16) {
         const noiseProfileCurr: any = noiseProfileAverage[i];
@@ -181,7 +181,7 @@ export function InputFile({
 
       ctx.beginPath();
       ctx.setLineDash([2, 3]);
-      let bars = 4096;
+      const bars = 4096;
 
       for (let i = 0; i < bars; i += 16) {
         const noiseProfileCurr: any = noiseProfileAverage[i];
@@ -232,7 +232,7 @@ export function InputFile({
       ctxBack.strokeStyle = 'rgba(255, 149, 0, 0.716)';
 
       ctxBack.beginPath();
-      let bars = 4096;
+      const bars = 4096;
 
       for (let i = 20; i < bars; i += 16) {
         barHeight = dataArray[i] * 0.5;
@@ -255,7 +255,7 @@ export function InputFile({
         analyser.fftSize = 8192;
 
         renderFrame();
-      } else if (audioState == 'pause') {
+      } else if (audioState === 'pause') {
         waveForm.pause();
         cancelAnimationFrame(primaryId.current);
       } else {
@@ -293,7 +293,7 @@ export function InputFile({
 
       ctx.beginPath();
       ctx.setLineDash([2, 3]);
-      let bars = 4096;
+      const bars = 4096;
 
       for (let i = 0; i < bars; i += 16) {
         const noiseProfileCurr: any = noiseProfileAverage[i];
@@ -372,48 +372,51 @@ export function InputFile({
   }, [noiseState]);
 
   useEffect(() => {
+    function handleReady() {
+      handleLoaded();
+      handleZoomIn();
+    }
+    function handleUpdate(region: any) {
+      const regions = region.wavesurfer.regions.list;
+      const keys = Object.keys(regions);
+      if (keys.length > 1) {
+        regions[keys[0]].remove();
+        regions[keys[1]].maxLength = 5;
+        regions[keys[1]].minLength = 0.25;
+        regions[keys[1]].color = 'rgba(255, 0, 38, 0.1)';
+      }
+    }
+    function handleUpdateEnd(region: any) {
+      const start = region.start;
+      let end = region.end;
+      if (end - start > 5) end = start + 5;
+      handleNoiseProfile(
+        Math.round(start * 10) / 10,
+        Math.round(end * 10) / 10,
+      );
+    }
     if (waveForm) {
-      waveForm.on('ready', function () {
-        handleLoaded();
-        handleZoomIn();
-      });
-
-      waveForm.on('region-updated', function (region: any) {
-        const regions = region.wavesurfer.regions.list;
-        const keys = Object.keys(regions);
-        if (keys.length > 1) {
-          regions[keys[0]].remove();
-          regions[keys[1]].maxLength = 5;
-          regions[keys[1]].minLength = 0.25;
-          regions[keys[1]].color = 'rgba(255, 0, 38, 0.1)';
-        }
-      });
-      waveForm.on('region-update-end', function (region: any) {
-        let start = region.start;
-        let end = region.end;
-        if (end - start > 5) end = start + 5;
-        handleNoiseProfile(
-          Math.round(start * 10) / 10,
-          Math.round(end * 10) / 10,
-        );
-      });
+      waveForm.on('ready', handleReady);
+      waveForm.on('region-updated', handleUpdate);
+      waveForm.on('region-update-end', handleUpdateEnd);
 
       setWaveForm(waveForm);
     }
   }, [waveForm]);
 
+  function handleOnPause() {
+    if (audioState === 'play') {
+      handlePause();
+    }
+  }
   if (waveForm) {
-    waveForm.on('pause', function () {
-      if (audioState === 'play') {
-        handlePause();
-      }
-    });
+    waveForm.on('pause', handleOnPause);
   }
 
   return (
     <div className="inputfile_main">
-      <div id="waveform"></div>
-      <div id="wave-timeline"></div>
+      <div id="waveform" />
+      <div id="wave-timeline" />
       <audio id="track" src={url} />
     </div>
   );

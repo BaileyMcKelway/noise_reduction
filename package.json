@@ -42,6 +42,7 @@
     "react": "16.14.0",
     "react-dom": "16.13.1",
     "react-dropzone": "11.2.4",
+    "url": "0.11.0",
     "url-loader": "4.1.1",
     "wavesurfer.js": "4.3.0"
   },

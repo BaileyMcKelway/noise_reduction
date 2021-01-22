@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-export interface IFooterProps {}
-
-export default function Footer(props: IFooterProps) {
+export default function Footer() {
   return (
     <footer>
       <ul>

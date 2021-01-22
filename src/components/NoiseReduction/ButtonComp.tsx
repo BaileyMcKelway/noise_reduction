@@ -4,43 +4,38 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 export interface IButtonCompProps {
   func: () => void;
-  color: string;
   classLabel: string;
   text: string | string[];
   active: boolean;
-  animation: boolean;
   reductionState: boolean;
 }
 
 // Controls for zoom feature in WaveSurfer.js
 export function ButtonComp({
   func,
-  color,
   classLabel,
   text,
   active,
-  animation,
   reductionState,
 }: IButtonCompProps) {
   let primaryText = text;
   let secondaryText = null;
   if (Array.isArray(text)) {
-    primaryText = text[0];
-    secondaryText = text[1];
+    [primaryText, secondaryText] = text;
   } else {
     secondaryText = <CircularProgress size={24} />;
   }
 
-  const disable = reductionState === true && active === false ? true : false;
+  const disable = reductionState && active;
+
+  const className = active
+    ? `reduction_button ${classLabel}_active`
+    : `reduction_button ${classLabel}`;
   return (
     <div className="reduction_buttons">
       <Button
         color="primary"
-        className={
-          active === false
-            ? `reduction_button ${classLabel}`
-            : `reduction_button ${classLabel + '_active'}`
-        }
+        className={className}
         disabled={disable}
         onClick={func}
         style={{

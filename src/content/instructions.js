@@ -1,5 +1,6 @@
 export const instructionContent = [
   {
+    id: 1,
     num: <h1>1</h1>,
     title: 'Load File',
     content: (
@@ -11,6 +12,7 @@ export const instructionContent = [
     ),
   },
   {
+    id: 2,
     num: <h1>2</h1>,
     title: 'Learn Noise',
     content: (
@@ -24,11 +26,12 @@ export const instructionContent = [
     ),
   },
   {
+    id: 3,
     num: <h1 className="outline">3</h1>,
     title: 'Set Noise Floor',
     content: (
       <div className="step_mod_text">
-        After Learning the noise, the graph should display a dashed line and a
+        After Learning the noise, the graph should display a dashed line and a{' '}
         <span className="green"> green</span> line. By dragging the slider on
         the left you can set the noise floor. The noise floor tells the
         algorithm how loud the noise is. The graph line will change from{' '}
@@ -38,6 +41,7 @@ export const instructionContent = [
     ),
   },
   {
+    id: 4,
     num: <h1>4</h1>,
     title: 'Set Noise Reduction',
     content: (
@@ -49,6 +53,7 @@ export const instructionContent = [
     ),
   },
   {
+    id: 5,
     num: <h1>5</h1>,
     title: 'Generate',
     content: (

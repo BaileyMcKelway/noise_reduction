@@ -13,7 +13,6 @@ import { ButtonComp } from './ButtonComp';
 export interface INoiseReductionProps {
   load: string;
   inputFile: any;
-  handleFile: (file: any) => void;
   handleLoaded: () => void;
   handleEmpty: () => void;
   example: boolean;
@@ -22,7 +21,6 @@ export interface INoiseReductionProps {
 function NoiseReduction({
   load,
   inputFile,
-  handleFile,
   handleLoaded,
   handleEmpty,
   example,
@@ -164,11 +162,9 @@ function NoiseReduction({
             />
             <ButtonComp
               func={handleLearn}
-              color="secondary"
               classLabel="learn"
               text={['Learn', 'X']}
               active={noiseState}
-              animation={false}
               reductionState={reductionState}
             />
           </div>
@@ -188,11 +184,9 @@ function NoiseReduction({
         </div>
         <ButtonComp
           func={Transcode}
-          color="primary"
           classLabel="generate"
           text="Generate"
           active={reductionState}
-          animation={true}
           reductionState={reductionState}
         />
       </div>
