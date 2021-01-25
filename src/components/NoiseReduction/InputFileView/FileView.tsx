@@ -32,11 +32,11 @@ export function FileView({
   example,
 }: IFileViewProps) {
   return (
-    <Paper elevation={3}>
+    <Paper elevation={3} className="fileview_paper">
       <div className="fileview_main">
         {load === 'loading' && (
           <div className="loading_file">
-            <div className="dot-pulse"></div>
+            <div className="dot-pulse" />
           </div>
         )}
         <InputFile

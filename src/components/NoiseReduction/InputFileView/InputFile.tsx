@@ -77,6 +77,7 @@ export function InputFile({
       waveColor: '#c6d2b3',
       cursorColor: 'transparent',
       normalize: true,
+      scrollParent: true,
       plugins: [
         Regions.create({
           regions: [

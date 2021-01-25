@@ -1,10 +1,10 @@
 import * as React from 'react';
-import InstructionStepsModMain from './InstructionSteps';
+import InstructionSteps from './InstructionSteps';
 
 export default function InstructionMain() {
   return (
     <div className="instruction_main">
-      <InstructionStepsModMain />
+      <InstructionSteps />
     </div>
   );
 }

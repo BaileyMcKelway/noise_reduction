@@ -20,9 +20,13 @@ const Home: React.FC = () => {
   return (
     <div>
       <Head>
-        <title>Media Edits | Noise Reduction in the browser!</title>
+        <title>MediaEdits.io | Noise Reduction in the browser!</title>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="description"
+          content="Remove background noise from audio files online for free!"
+        />
       </Head>
 
       <div className="container">

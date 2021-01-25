@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-export interface IDescriptionProps {}
-
-export default function Description(props: IDescriptionProps) {
+export default function Description() {
   return (
     <div className="description_main">
       <p className="description_content">

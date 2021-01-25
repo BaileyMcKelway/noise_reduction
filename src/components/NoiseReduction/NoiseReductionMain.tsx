@@ -123,7 +123,7 @@ function NoiseReduction({
           reductionState={reductionState}
           audioState={audioState}
         />
-        <div className="noise_reduction_top_left">
+        <div className="noise_reduction_top_right">
           <ZoomControls
             handleZoom={handleZoom}
             zoom={zoom}

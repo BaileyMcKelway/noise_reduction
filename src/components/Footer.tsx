@@ -20,11 +20,8 @@ export default function Footer() {
             <a>Terms</a>
           </Link>
         </li>
-        <li>
-          {' '}
-          <small>© Media Edits, 2021–2021</small>
-        </li>
       </ul>
+      <small>© Media Edits, 2021–2021</small>
     </footer>
   );
 }
