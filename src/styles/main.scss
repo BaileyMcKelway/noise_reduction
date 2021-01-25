@@ -12,8 +12,8 @@ body {
 
 .container {
   position: relative;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -38,6 +38,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   ul {
     align-self: center;
     display: flex;
@@ -296,7 +297,7 @@ aside {
       position: relative;
       background: rgb(251, 251, 251);
       .canvas {
-        height: 95%;
+        height: 100%;
         width: 95%;
         position: absolute;
         background-color: transparent;

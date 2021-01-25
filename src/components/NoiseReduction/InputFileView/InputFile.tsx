@@ -353,7 +353,7 @@ export function InputFile({
         }
 
         ctxMid.beginPath();
-        let bars = 4096;
+        const bars = 4096;
 
         for (let i = 0; i < bars; i += 16) {
           const noiseProfileCurr: any = noiseProfileAverage[i];

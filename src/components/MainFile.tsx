@@ -59,6 +59,9 @@ export const MainFile = ({
           />
         </div>
         <Example handleExample={handleExample} />
+        <small style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
+          Does not support mobile devices
+        </small>
       </>
     );
   }
