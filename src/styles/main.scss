@@ -51,7 +51,11 @@ footer {
     align-self: flex-end;
   }
 }
-@media (max-width: 400px) {
+.social_links {
+  margin: 5px;
+  color: black;
+}
+@media (max-width: 500px) {
   footer {
     height: 2rem;
     width: 99vw;
