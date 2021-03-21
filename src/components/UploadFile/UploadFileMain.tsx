@@ -30,9 +30,10 @@ export default function UploadFileMain({
         <Image
           src="/upload_cloud.svg"
           alt="cloud upload"
-          width="240"
-          height="240"
+          width={240}
+          height={240}
           className="load_file_image"
+          priority
         />
         <input {...getInputProps()} />
       </div>
