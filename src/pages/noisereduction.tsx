@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import NavBar from '@/components/NavBar';
 import Title from '@/components/Title';
-import Description from '@/components/Description';
 import Back from '@/components/Back';
 import MainFile from '@/components/MainFile';
-import InstructionModMain from '@/components/BulletPoints/BulletPoints';
 import InstructionsMain from '@/components/Instructions/InstructionsMain';
 import Footer from '@/components/Footer';
 
@@ -32,17 +30,14 @@ const NoiseReduction: React.FC = () => {
       <div className="container">
         <NavBar />
         <Title />
-        <div>
-          <Description />
-          {load !== 'empty' && <Back handleBack={handleBack} />}
-        </div>
+        <div>{load !== 'empty' && <Back handleBack={handleBack} />}</div>
         <MainFile
           load={load}
           setLoad={setLoad}
           inputFile={inputFile}
           setInputFile={setInputFile}
         />
-        {load === 'empty' ? <InstructionModMain /> : <InstructionsMain />}
+        {load === 'empty' ? '' : <InstructionsMain />}
         <Footer />
       </div>
     </div>

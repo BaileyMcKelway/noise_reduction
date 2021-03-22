@@ -35,7 +35,7 @@ body {
     width: 100%;
 
     display: flex;
-
+    justify-content: center;
     position: relative;
   }
   .landing_bottom {
@@ -45,10 +45,13 @@ body {
 }
 .landing_description {
   h1 {
-    font-size: 3.3vw;
+    font-size: 4rem;
+    text-decoration: underline;
+    text-decoration-color: #0080ff;
   }
   p {
-    font-size: 1.3vw;
+    font-size: 1.4rem;
+    font-weight: 200;
   }
   text-align: center;
 
@@ -65,16 +68,46 @@ body {
 }
 
 .toolcards {
+  margin-top: 55px;
   width: 100%;
-  height: 100%;
-  background-color: red;
+  // height: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.toolcard {
+  position: relative;
+
+  width: 35vw;
+  max-width: 700px;
+  height: 15vh;
+  min-height: 250px;
+  margin: 5px;
+  overflow: hidden;
+
+  border: dashed 1px #0080ff;
+  border-radius: 15px;
+  h1 {
+    z-index: 5;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
+  img {
+    top: 0;
+    left: 0;
+
+    width: 100%;
+  }
 }
 
 // NAVBAR
 header {
   display: block;
-  color: white;
-  background-color: black;
+  color: black;
+  // background-color: whitesmoke;
   width: 100vw;
   letter-spacing: 0.001em;
 }
@@ -221,7 +254,7 @@ aside {
 
 // MAIN APP
 .main_file {
-  margin-top: 15vh;
+  margin-top: 4vh;
 }
 
 .fileview_main {

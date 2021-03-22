@@ -14,9 +14,7 @@ export default function LandingMain() {
         <LandingDescription />
         <LandingImage />
       </div>
-      <div className="landing_bottom">
-        <ToolCards />
-      </div>
+      <ToolCards />
     </div>
   );
 }

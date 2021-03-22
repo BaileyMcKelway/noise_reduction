@@ -1,13 +1,13 @@
 import * as React from 'react';
-
-export interface IToolCardsProps {
-  handleExample: () => void;
-}
+import ToolCard from './ToolCard';
+import { toolsContent } from '../../../content/tools';
 
 export default function ToolCards() {
   return (
     <div className="toolcards">
-      <h1>Tool Cards</h1>
+      {toolsContent.map((content) => (
+        <ToolCard key={content.id} content={content} />
+      ))}
     </div>
   );
 }
