@@ -4,6 +4,7 @@ import NavBar from '@/components/NavBar';
 import Title from '@/components/Title';
 import Back from '@/components/Back';
 import MainFile from '@/components/MainFile';
+import BulletPoints from '@/components/BulletPoints/BulletPoints';
 import InstructionsMain from '@/components/Instructions/InstructionsMain';
 import Footer from '@/components/Footer';
 
@@ -16,7 +17,7 @@ const NoiseReduction: React.FC = () => {
     setLoad('empty');
   };
   return (
-    <div>
+    <div className="wave-container">
       <Head>
         <title>MediaEdits.io | Noise Reduction in the browser!</title>
         <meta charSet="utf-8" />
@@ -38,8 +39,9 @@ const NoiseReduction: React.FC = () => {
           setInputFile={setInputFile}
         />
         {load === 'empty' ? '' : <InstructionsMain />}
-        <Footer />
       </div>
+
+      <Footer />
     </div>
   );
 };

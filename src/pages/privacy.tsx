@@ -4076,7 +4076,6 @@ export default function Privacy(props: IPrivacyProps) {
           </div>
         </div>
       </>
-      <Footer />
     </div>
   );
 }

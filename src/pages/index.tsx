@@ -5,7 +5,7 @@ import LandingMain from '@/components/Landing/LandingMain';
 import Footer from '@/components/Footer';
 
 const Home: React.FC = () => (
-  <div>
+  <div className="wave-container">
     <Head>
       <title>MediaEdits.io | Noise Reduction in the browser!</title>
       <meta charSet="utf-8" />
@@ -19,8 +19,8 @@ const Home: React.FC = () => (
     <div className="container">
       <NavBar />
       <LandingMain />
-      <Footer />
     </div>
+    <Footer />
   </div>
 );
 

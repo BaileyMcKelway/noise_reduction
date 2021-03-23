@@ -288,7 +288,6 @@ const Terms: React.FC = () => (
     <ul>
       <li>By email: contact@mediaedits.io</li>
     </ul>
-    <Footer />
   </div>
 );
 

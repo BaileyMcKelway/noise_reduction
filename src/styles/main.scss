@@ -20,6 +20,11 @@ body {
   align-items: center;
 }
 
+.wave-container {
+  background: url(./wave.svg) bottom / 100% auto;
+  background-repeat: no-repeat;
+}
+
 // LANDING
 .landing_main {
   display: flex;
@@ -28,7 +33,7 @@ body {
   align-items: center;
 
   max-width: 2000px;
-  height: 100vh;
+  height: 100%;
 
   .landing_top {
     margin-top: 100px;
@@ -82,13 +87,13 @@ body {
 
   width: 35vw;
   max-width: 700px;
+
   height: 15vh;
   min-height: 250px;
+
   margin: 5px;
   overflow: hidden;
 
-  border: dashed 1px #0080ff;
-  border-radius: 15px;
   h1 {
     z-index: 5;
   }
@@ -105,27 +110,61 @@ body {
 
 // NAVBAR
 header {
-  display: block;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
   color: black;
-  // background-color: whitesmoke;
+
   width: 100vw;
   letter-spacing: 0.001em;
+}
+.nav_border {
+  margin-left: 20px;
+  width: 100px;
+  height: 40px;
+  border-left: 1px solid black;
+}
+
+.nav_links {
+  width: 25%;
+  max-width: 1500px;
+  min-width: 350px;
+  display: flex;
+  justify-content: space-around;
+}
+.nav_link {
+  text-decoration: none;
+  font-weight: 500;
+  color: grey;
+
+  &:hover {
+    color: white;
+    background-color: #0080ff;
+  }
 }
 
 // FOOTER
 footer {
-  height: 2rem;
+  bottom: 0;
   width: 99vw;
   margin-top: 150px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  background-color: black;
+  color: white;
   ul {
     align-self: center;
     display: flex;
     li {
+      a {
+        text-decoration: none;
+        color: white;
+      }
       margin: 5px;
       list-style: none;
     }
