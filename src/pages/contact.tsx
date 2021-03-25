@@ -5,7 +5,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 const Contact: React.FC = () => (
-  <div className="container">
+  <div className="container contact">
     <NavBar />
     <p>
       If there is any support needed or you just want to reach out please email:

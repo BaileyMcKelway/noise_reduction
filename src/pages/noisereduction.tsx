@@ -17,7 +17,7 @@ const NoiseReduction: React.FC = () => {
     setLoad('empty');
   };
   return (
-    <div className="wave-container">
+    <div>
       <Head>
         <title>MediaEdits.io | Noise Reduction in the browser!</title>
         <meta charSet="utf-8" />
@@ -27,9 +27,8 @@ const NoiseReduction: React.FC = () => {
           content="Remove background noise from audio files online for free!"
         />
       </Head>
-
-      <div className="container">
-        <NavBar />
+      <NavBar />
+      <div className="container noisereduction">
         <Title />
         <div>{load !== 'empty' && <Back handleBack={handleBack} />}</div>
         <MainFile
@@ -40,7 +39,6 @@ const NoiseReduction: React.FC = () => {
         />
         {load === 'empty' ? '' : <InstructionsMain />}
       </div>
-
       <Footer />
     </div>
   );
