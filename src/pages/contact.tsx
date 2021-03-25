@@ -11,7 +11,7 @@ const Contact: React.FC = () => (
       If there is any support needed or you just want to reach out please email:
       <a href="mailto:contact@mediaedits.io"> contact@mediaedits.io </a>
     </p>
-    <p>Contact to creator!</p>
+    <p>Contact the creator!</p>
     <div>
       <a
         href="https://www.linkedin.com/in/bailey-mckelway/"
@@ -28,7 +28,6 @@ const Contact: React.FC = () => (
         <GitHubIcon fontSize="large" className="social_links" />
       </a>
     </div>
-    <Footer />
   </div>
 );
 

@@ -19,7 +19,7 @@ const Title: React.FC = () => (
         .title {
           margin: 0;
           line-height: 1.15;
-          font-size: 4rem;
+          font-size: 3rem;
           text-align: center;
         }
       `}

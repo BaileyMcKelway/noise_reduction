@@ -20,29 +20,151 @@ body {
   align-items: center;
 }
 
+.wave-container {
+  background: url(./wave.svg) bottom / 100% auto;
+  background-repeat: no-repeat;
+}
+
+// LANDING
+.landing_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  max-width: 2000px;
+  height: 100%;
+
+  .landing_top {
+    margin-top: 100px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  .landing_bottom {
+    width: 100%;
+    height: 100%;
+  }
+}
+.landing_description {
+  h1 {
+    font-size: 4rem;
+    text-decoration: underline;
+    text-decoration-color: #0080ff;
+  }
+  p {
+    font-size: 1.4rem;
+    font-weight: 200;
+  }
+  text-align: center;
+
+  width: 35vw;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.landing_image {
+  width: 40vw;
+  height: 100%;
+}
+
+.toolcards {
+  margin-top: 55px;
+  width: 100%;
+  // height: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.toolcard {
+  position: relative;
+
+  width: 35vw;
+  max-width: 700px;
+
+  height: 15vh;
+  min-height: 250px;
+
+  margin: 5px;
+  overflow: hidden;
+
+  h1 {
+    z-index: 5;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
+  img {
+    top: 0;
+    left: 0;
+
+    width: 100%;
+  }
+}
+
 // NAVBAR
 header {
-  display: block;
-  color: white;
-  background-color: black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  color: black;
+
   width: 100vw;
   letter-spacing: 0.001em;
+}
+.nav_border {
+  margin-left: 20px;
+  width: 100px;
+  height: 40px;
+  border-left: 1px solid black;
+}
+
+.nav_links {
+  width: 25%;
+  max-width: 1500px;
+  min-width: 350px;
+  display: flex;
+  justify-content: space-around;
+}
+.nav_link {
+  text-decoration: none;
+  font-weight: 500;
+  color: grey;
+
+  &:hover {
+    color: white;
+    background-color: #0080ff;
+  }
 }
 
 // FOOTER
 footer {
-  height: 2rem;
+  bottom: 0;
   width: 99vw;
   margin-top: 150px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  background-color: black;
+  color: white;
   ul {
     align-self: center;
     display: flex;
     li {
+      a {
+        text-decoration: none;
+        color: white;
+      }
       margin: 5px;
       list-style: none;
     }
@@ -171,7 +293,7 @@ aside {
 
 // MAIN APP
 .main_file {
-  margin-top: 15vh;
+  margin-top: 4vh;
 }
 
 .fileview_main {
