@@ -10,7 +10,7 @@ MediaEdits.io makes it easier than ever to edit your audio and video files onlin
 - Next.js
 - Typescript
 - ffmpeg
-
+- WASM
 
 ## Home Page
 ![home page](https://i.imgur.com/3AJbDMf.png)
